@@ -1,6 +1,6 @@
-**Date**<br>
-**Course Code & Course Name**<br>
-**Student's First Name & Last Name**<br>
+**October 16, 2024**<br>
+**MPAD 2003 Data Storytelling**<br>
+**Caroline Wurster**<br>
 **Presented to Jean-Sébastien Marier**<br>
 
 # Midterm Project: Exploratory Data Analysis (EDA)
