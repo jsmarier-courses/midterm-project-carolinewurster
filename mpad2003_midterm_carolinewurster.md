@@ -5,13 +5,9 @@
 
 # Midterm Project: Exploratory Data Analysis (EDA)
 
-Use one hashtag symbol (`#`) to create a level 1 heading like this one.
-
 ## Foreword
 
 For this assignment, you must extract data from a dataset provided by the instructor. You must then clean and analyze the data, create exploratory charts/visualizations, and find a potential story idea. Your assignment must clearly detail your process. You are expected to write about 1500-2000 words, and to include several screen captures showing the different steps you went through. Your assignment must be written with the Markdown format and submitted on GitHub Classroom.
-
-I have been assigning different versions of this project to my digital journalism and data storytelling students for a few years now. Its structure was inspired by the main sections/chapters of [*The Data Journalism Handbook*](https://datajournalism.com/read/handbook/one/). This version was further inspired by the [Key Capabilities in Data Science](https://extendedlearning.ubc.ca/programs/key-capabilities-data-science) program offered by the University of British Columbia (UBC).
 
 **Here are some useful resources for this assignment:**
 
@@ -24,9 +20,50 @@ And to create an unordered list, we simply put a star (`*`) before each item.
 
 ## 1. Introduction
 
-Insert text here.
+My name is Caroline Wurster and I will be analyzing a City of Ottawa dataset about XYZ
+* Offer a succinct description of the dataset you are analyzing (at least three or four short observations: how the data was collected, what it includes, etc.).
+
+[Here is the link to the original dataset on Open Ottawa.](https://www.arcgis.com/home/item.html?id=65fe42e2502d442b8a774fd3d954cac5)
+
+[Here is the link to the CSV version on the GitHub portal.](https://raw.githubusercontent.com/jsmarier/course-datasets/refs/heads/main/ottawa-311-service-requests-august-2024.csv)
+
+* The City of Ottawa is the source. Thus, explain how the City collected the data!
 
 ## 2. Getting Data
+
+I imported the data into Google Sheets by first opening the CSV file link from the Github repository. 
+I then right clicked and hit “Save As” to save the file into my downloads
+Then, I created a new Google Sheets file and clicked on “File → Import → Upload”.
+A screen popped up where I put “Replace current sheet” as the import location and “Comma” as the separator type
+I then clicked “Import Data” and after loading for a second, the file was successfully imported
+
+
+This is what the file looked like right after importation
+![](file-after-importation.png)<br>
+
+[Here is the link to my Google Sheets spreadsheet](https://docs.google.com/spreadsheets/d/1t-jOmurv8BvXxvz8qQL1A-_T3aBUDeR_cZUblj-8FQE/edit?usp=sharing)
+
+* Some general observations regarding the dataset:
+* There is 11 columns and 28 539 rows
+
+For the most part the data looked clean, however there are a few things that could be fixed: 
+* I used the Clean-Up Suggestions tool and it told me there was over 750 columns with whitespace that could be removed
+* The data is supposed to only cover all of August, however, the very last row has a September date
+* A lot of the addresses are missing
+
+* Make specific observations about at least three columns: 
+What types of variables are we dealing with? Be specific. For example: "Column A features nominal variables with the names of all participants in the study. Column B includes the age of each participant as discrete variables."
+
+* Is there something missing, out of the ordinary, surprising?
+The wards that had the highest frequency of service requests in Ottawa were:
+* 12 - Rideau-Vanier
+* 14 - Somerset (Ottawa’s smallest and most dense ward)
+* 15 - Kitchissippi
+* 19 - Orléans South-Navan
+
+* Hint: Take a look at the City of Ottawa's website for a list of wards and councillors...
+
+Hypothesis: Wards with higher population have more service requests because of greater demands on infrastructure
 
 Use two hashtag symbols (`##`) to create a level 2 heading like this one.
 
