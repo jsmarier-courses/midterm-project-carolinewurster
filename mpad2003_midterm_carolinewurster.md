@@ -34,8 +34,8 @@ My name is Caroline Wurster and I will be analyzing a City of Ottawa dataset abo
 I imported the data into Google Sheets by first opening the CSV file link from the Github repository. 
 I then right clicked and hit “Save As” to save the file into my downloads
 Then, I created a new Google Sheets file and clicked on “File → Import → Upload”.
-A screen popped up where I put “Replace current sheet” as the import location and “Comma” as the separator type
-I then clicked “Import Data” and after loading for a second, the file was successfully imported
+A screen popped up where I put “Replace current sheet” as the import location and “Comma” as the separator type.
+I then clicked “Import Data” and after loading for a second, the file was successfully imported.
 
 
 This is what the file looked like right after importation
@@ -53,6 +53,13 @@ For the most part the data looked clean, however there are a few things that cou
 
 * Make specific observations about at least three columns: 
 What types of variables are we dealing with? Be specific. For example: "Column A features nominal variables with the names of all participants in the study. Column B includes the age of each participant as discrete variables."
+
+Column B contains the status of each service request as a nominal variable. The status describes each request as either resolved, active, or cancelled. If the request is resolved, it means the problem was fixed. If the request is active, it is still being worked on. If the request is cancelled, it means the service is no longer needed.
+
+Columns H and I contain the latitude and longitude of each service request as continuous variables. However, many rows have ‘/N’ instead of a location, likely because certain service requests could be linked to specific households. Revealing the exact location might compromise privacy. Instead, the dataset includes the ward for each service request. This way, the precise address is not disclosed, but the general area (ward) is still provided.
+
+Column A contains the service request ID of each request made, represented as discrete variables. Each ID provides a unique numeric identifier that allows for easy tracking and reference within the dataset. This identifier ensures that each request can be precisely located in the records without the need to reference other details, such as location, which helps maintain confidentiality. By using unique IDs, it is possible to manage, update, and analyze individual requests efficiently, even if other details of the request (like location) are withheld for privacy.
+
 
 * Is there something missing, out of the ordinary, surprising?
 The wards that had the highest frequency of service requests in Ottawa were:
