@@ -11,23 +11,18 @@ For this assignment, you must extract data from a dataset provided by the instru
 
 **Here are some useful resources for this assignment:**
 
-* [GitHub's *Basic writing and formatting syntax* page](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 * [The template repository for this assignment in case you delete something by mistake](https://github.com/jsmarier/jou4100_jou4500_mpad2003_project2_template)
-
-Did you notice how to create a hyperlink? In Markdown, we put the clickable text between square brackets and the actual URL between parentheses.
-
-And to create an unordered list, we simply put a star (`*`) before each item.
 
 ## 1. Introduction
 
 My name is Caroline Wurster and I will be analyzing a City of Ottawa dataset about XYZ
 * Offer a succinct description of the dataset you are analyzing (at least three or four short observations: how the data was collected, what it includes, etc.).
 
+The City of Ottawa collects service request data from various channels, including the 311 Contact Centre, Client Service Centres, 311 Email, and the Web-based Self-Service portal. This data is then presented on the Open Ottawa website, where it can be viewed by ward and includes information about the responsible department and a description of each request. The dataset is updated monthly. For our analysis, we will focus on the month of August 2024.
+
 [Here is the link to the original dataset on Open Ottawa.](https://www.arcgis.com/home/item.html?id=65fe42e2502d442b8a774fd3d954cac5)
 
 [Here is the link to the CSV version on the GitHub portal.](https://raw.githubusercontent.com/jsmarier/course-datasets/refs/heads/main/ottawa-311-service-requests-august-2024.csv)
-
-* The City of Ottawa is the source. Thus, explain how the City collected the data!
 
 ## 2. Getting Data
 
@@ -38,8 +33,8 @@ A screen popped up where I put “Replace current sheet” as the import locatio
 I then clicked “Import Data” and after loading for a second, the file was successfully imported.
 
 
-This is what the file looked like right after importation
 ![](file-after-importation.png)<br>
+*Figure 1: The file right after importing it into Google Sheets*
 
 [Here is the link to my Google Sheets spreadsheet](https://docs.google.com/spreadsheets/d/1t-jOmurv8BvXxvz8qQL1A-_T3aBUDeR_cZUblj-8FQE/edit?usp=sharing)
 
@@ -62,22 +57,10 @@ Column A contains the service request ID of each request made, represented as di
 
 
 * Is there something missing, out of the ordinary, surprising?
-The wards that had the highest frequency of service requests in Ottawa were:
-* 12 - Rideau-Vanier
-* 14 - Somerset (Ottawa’s smallest and most dense ward)
-* 15 - Kitchissippi
-* 19 - Orléans South-Navan
+* One notable finding in the dataset is recorded in row 10, which details a traffic light outage that took an unusually long time to resolve—specifically, from August 1st to October 3rd, a span of over two months. This is particularly surprising because traffic light outages are critical issues that typically require immediate attention for the safety and convenience of motorists and pedestrians.
 
-* Hint: Take a look at the City of Ottawa's website for a list of wards and councillors...
+Hypothesis: Wards with higher population (such as Rideau-Vanier, Somerset, Kitchissippi, Orléans South-Navan) have more service requests because of greater demands on infrastructure
 
-Hypothesis: Wards with higher population have more service requests because of greater demands on infrastructure
-
-Use two hashtag symbols (`##`) to create a level 2 heading like this one.
-
-To include a screen capture, use the sample code below. Your images should be saved in the same folder as your `.md` file.
-
-![](import-screen-capture.png)<br>
-*Figure 1: The "Import file" prompt on Google Sheets.*
 
 **Here are examples of functions and lines of code put in grey boxes:**
 
@@ -94,7 +77,10 @@ This also shows how to create an ordered list. Simply put `1.` before each item.
 
 ### 3.1. VIMO Analysis (162 words)
 
-For my VIMO analysis, I used the “Review Column Stats” tool under Data → Data Cleanup → Cleanup Suggestions to help me visualize each column using a bar graph
+For my VIMO analysis, I used the “Review Column Stats” tool under Data → Data Cleanup → Cleanup Suggestions to help me visualize each column using a bar graph.
+
+![](review-column-stats.png)<br>
+*Figure 2: The Review Column Stats tool, illustrating the most frequently used channels for submitting service requests.*
 
 __Valid:__ The status column serves as good example of a valid value set, containing only the defined categories: 'Active,' 'Resolved,' and 'Cancelled.' Each entry is accounted for, with no blank or missing values present and they all fall within the expected range.
 
@@ -102,7 +88,7 @@ __Invalid:__ In the final row of data, there is a September opening date, which 
 
 __Missing:__ The addresses, longitude, and latitude columns contain numerous entries marked as '/N,' indicating that the expected data is absent or missing.
 
-__Outliers:__ In the channel column, the outlier is 'counter,' with only 2 people submitting service requests in this manner. However, this may also be classified as walk-in service. We will address this inconsistency during the data cleaning process.
+__Outliers:__ In the channel column, the outlier is 'counter' (as illustrated in Figure 2), with only 2 people submitting service requests in this manner. However, this may also be classified as walk-in service. We will address this inconsistency during the data cleaning process.
 
 
 Support your claims by citing relevant sources. Please follow [APA guidelines for in-text citations](https://apastyle.apa.org/style-grammar-guidelines/citations).
