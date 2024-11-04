@@ -90,13 +90,20 @@ To include a screen capture, use the sample code below. Your images should be sa
 ```
 This also shows how to create an ordered list. Simply put `1.` before each item.
 
-## 3. Understanding Data
+## 3. Understanding Data (700-1000 words)
 
-### 3.1. VIMO Analysis
+### 3.1. VIMO Analysis (162 words)
 
-Use three hashtag symbols (`###`) to create a level 3 heading like this one. Please follow this template when it comes to level 1 and level 2 headings. However, you can use level 3 headings as you see fit.
+For my VIMO analysis, I used the “Review Column Stats” tool under Data → Data Cleanup → Cleanup Suggestions to help me visualize each column using a bar graph
 
-Insert text here.
+__Valid:__ The status column serves as good example of a valid value set, containing only the defined categories: 'Active,' 'Resolved,' and 'Cancelled.' Each entry is accounted for, with no blank or missing values present and they all fall within the expected range.
+
+__Invalid:__ In the final row of data, there is a September opening date, which is technically considered invalid since this dataset is intended to reflect only service requests made throughout August.
+
+__Missing:__ The addresses, longitude, and latitude columns contain numerous entries marked as '/N,' indicating that the expected data is absent or missing.
+
+__Outliers:__ In the channel column, the outlier is 'counter,' with only 2 people submitting service requests in this manner. However, this may also be classified as walk-in service. We will address this inconsistency during the data cleaning process.
+
 
 Support your claims by citing relevant sources. Please follow [APA guidelines for in-text citations](https://apastyle.apa.org/style-grammar-guidelines/citations).
 
