@@ -101,7 +101,7 @@ As Cairo (2016) argues, a data visualization should be truthful...
 
 To clean the data, I used a few different methods including: 
 
-__The Google Sheets Data-Cleaning Tools__
+__1. The Google Sheets Data-Cleaning Tools__
 
 ![](data-cleanup.png)<br>
 *Figure 3: Data Cleanup Tools such as "Cleanup Suggestions", "Remove Duplicates", and "Trim Whitespace"*
@@ -113,11 +113,42 @@ __The Google Sheets Data-Cleaning Tools__
 ![](find-and-replace.png)<br>
 *Figure 4: Using the find and replace tool*
 
-__Used Different Functions__
-* Split
-* Concatenate
+__2. Used The Split Function__
 
-__Method #3__
+
+The SPLIT function divides text around a specified character or string, and puts each fragment into a separate cell in the row.
+
+To clean the data, I used the SPLIT function for the “Description” column because it had an English and French description. However, for this dataset, everything is only in English so we didn’t need the French translation.
+
+* To start, I added 2 new columns 
+* In one of the columns, I wrote the SPLIT function as so:
+`=SPLIT(D2, "|")`
+* I used "|" as the delimiter because this is where the English and French are separated so they'll go into different columns
+
+![](SPLIT-function.png)<br>
+*Figure 5: Use the SPLIT function to separate the values into 2 separate columns*
+
+* I then double-clicked the small blue square in the lower-right corner of the cell with the formula so it would do it to the rest of the cells
+* Right click to “Paste Special” → “Values Only” so you can edit the cells 
+* Delete the French column (column F) and delete the original column (column D)
+* Change the heading to "Description"
+
+__3. Used The Concatenate Function__
+
+The CONCATENATE function appends strings to one another.
+
+To further clean the data, I used the CONCATENATE function to put the latitude and longitude into one collective column.
+
+* To start, I added a new column
+* In the column, I wrote the CONCATENATE function as so:
+`=CONCATENATE(H2, ", ", I2)`
+* I wrote it this way so that between the latitude and longitude, there would be a comma with a space beside it to easily differentiate between the two
+* I then double-clicked the small blue square in the lower-right corner of the cell with the formula so it would do it to the rest of the cells
+* Since there was a lot of \N, \N's, I used the find and replace tool to replace them with just a single \N
+* Right click to “Paste Special” → “Values Only” so you can edit the cells 
+* Delete the original columns, H and I
+* Change the heading to "Latitude, Longitude"
+
 
 
 ### 3.3. Exploratory Data Analysis (EDA)
