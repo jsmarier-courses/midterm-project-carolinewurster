@@ -99,7 +99,26 @@ As Cairo (2016) argues, a data visualization should be truthful...
 
 ### 3.2. Cleaning Data
 
-Insert text here.
+To clean the data, I used a few different methods including: 
+
+__The Google Sheets Data-Cleaning Tools__
+
+![](data-cleanup.png)<br>
+*Figure 3: Data Cleanup Tools such as "Cleanup Suggestions", "Remove Duplicates", and "Trim Whitespace"*
+
+* To trim the whitespace in the dataset, I simply clicked "Trim Whitespace" in the Data Cleanup Tools, and then it just automatically did it for me
+* To remove duplicates, I clicked the "Remove Duplicates" button, however it told me that no duplicate rows were found
+* As I mentioned earlier, I used the find and replace tool (Control + F) to find the word "Counter" and replace it with "Walk-In"
+
+![](find-and-replace.png)<br>
+*Figure 4: Using the find and replace tool*
+
+__Used Different Functions__
+* Split
+* Concatenate
+
+__Method #3__
+
 
 ### 3.3. Exploratory Data Analysis (EDA)
 
