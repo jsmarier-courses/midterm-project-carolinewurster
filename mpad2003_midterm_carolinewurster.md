@@ -5,24 +5,32 @@
 
 # Midterm Project: Exploratory Data Analysis (EDA)
 
-## Foreword
-
-For this assignment, you must extract data from a dataset provided by the instructor. You must then clean and analyze the data, create exploratory charts/visualizations, and find a potential story idea. Your assignment must clearly detail your process. You are expected to write about 1500-2000 words, and to include several screen captures showing the different steps you went through. Your assignment must be written with the Markdown format and submitted on GitHub Classroom.
-
 **Here are some useful resources for this assignment:**
 
 * [The template repository for this assignment in case you delete something by mistake](https://github.com/jsmarier/jou4100_jou4500_mpad2003_project2_template)
 
 ## 1. Introduction
 
-My name is Caroline Wurster and I will be analyzing a City of Ottawa dataset about XYZ
-* Offer a succinct description of the dataset you are analyzing (at least three or four short observations: how the data was collected, what it includes, etc.).
+My name is Caroline Wurster and I will be analyzing a City of Ottawa dataset about the service requests made in all of August 2024.
 
-The City of Ottawa collects service request data from various channels, including the 311 Contact Centre, Client Service Centres, 311 Email, and the Web-based Self-Service portal. This data is then presented on the Open Ottawa website, where it can be viewed by ward and includes information about the responsible department and a description of each request. The dataset is updated monthly. For our analysis, we will focus on the month of August 2024.
+To begin, I made a few short observations about about the dataset we'll be looking at:
 
-[Here is the link to the original dataset on Open Ottawa.](https://www.arcgis.com/home/item.html?id=65fe42e2502d442b8a774fd3d954cac5)
+__How The Data Was Collected:__
 
-[Here is the link to the CSV version on the GitHub portal.](https://raw.githubusercontent.com/jsmarier/course-datasets/refs/heads/main/ottawa-311-service-requests-august-2024.csv)
+The City of Ottawa collected the service request data from a variety of channels, including: 311 Contact Centre, Client Service Centres, 311 Email, and Web-based Self-Service portal. The data is then presented on the Open Ottawa website where it is updated monthly. 
+
+__Time Period Of The Data:__
+
+For this dataset, we will be looking at service requests from August 1, 2024 to August 31, 2024.
+
+__Variable Types__
+
+With 11 columns total, the dataset contains both categorical variables (e.g., status, type) and numeric variables (e.g., latitude, longitude), which will require different handling in the analysis.
+
+
+[Link to the original dataset on Open Ottawa.](https://www.arcgis.com/home/item.html?id=65fe42e2502d442b8a774fd3d954cac5)
+
+[Link to the CSV version on the GitHub portal. This is the dataset we'll be looking at.](https://raw.githubusercontent.com/jsmarier/course-datasets/refs/heads/main/ottawa-311-service-requests-august-2024.csv)
 
 ## 2. Getting Data
 
@@ -34,48 +42,38 @@ I then clicked “Import Data” and after loading for a second, the file was su
 
 
 ![](file-after-importation.png)<br>
-*Figure 1: The file right after importing it into Google Sheets*
+*Figure 1: The file right after importing it into Google Sheets.*
+[Link to my Google Sheets spreadsheet](https://docs.google.com/spreadsheets/d/1t-jOmurv8BvXxvz8qQL1A-_T3aBUDeR_cZUblj-8FQE/edit?usp=sharing)
 
-[Here is the link to my Google Sheets spreadsheet](https://docs.google.com/spreadsheets/d/1t-jOmurv8BvXxvz8qQL1A-_T3aBUDeR_cZUblj-8FQE/edit?usp=sharing)
-
-* Some general observations regarding the dataset:
+__General Observations Regarding The Dataset:__
 * There is 11 columns and 28 539 rows
+* As for the cleanliness of the data, there are a few things that could be fixed: 
+* Using the Clean-Up Suggestions tool, it told me there was over 750 columns with whitespace that could be removed.
+* Upon further investigation, I also found that the data is supposed to only cover all of August, however, the very last row has a September date
+* I also found that many of addresses are missing. In the future, we may need to fill in the missing values or exclude these entries, depending on our analysis goals.
 
-For the most part the data looked clean, however there are a few things that could be fixed: 
-* I used the Clean-Up Suggestions tool and it told me there was over 750 columns with whitespace that could be removed
-* The data is supposed to only cover all of August, however, the very last row has a September date
-* A lot of the addresses are missing
+__Specific Observations About Three Columns:__ 
 
-* Make specific observations about at least three columns: 
-What types of variables are we dealing with? Be specific. For example: "Column A features nominal variables with the names of all participants in the study. Column B includes the age of each participant as discrete variables."
-
-Column B contains the status of each service request as a nominal variable. The status describes each request as either resolved, active, or cancelled. If the request is resolved, it means the problem was fixed. If the request is active, it is still being worked on. If the request is cancelled, it means the service is no longer needed.
-
-Columns H and I contain the latitude and longitude of each service request as continuous variables. However, many rows have ‘/N’ instead of a location, likely because certain service requests could be linked to specific households. Revealing the exact location might compromise privacy. Instead, the dataset includes the ward for each service request. This way, the precise address is not disclosed, but the general area (ward) is still provided.
+__Column A__
 
 Column A contains the service request ID of each request made, represented as discrete variables. Each ID provides a unique numeric identifier that allows for easy tracking and reference within the dataset. This identifier ensures that each request can be precisely located in the records without the need to reference other details, such as location, which helps maintain confidentiality. By using unique IDs, it is possible to manage, update, and analyze individual requests efficiently, even if other details of the request (like location) are withheld for privacy.
 
+__Column B__
 
-* Is there something missing, out of the ordinary, surprising?
-* One notable finding in the dataset is recorded in row 10, which details a traffic light outage that took an unusually long time to resolve—specifically, from August 1st to October 3rd, a span of over two months. This is particularly surprising because traffic light outages are critical issues that typically require immediate attention for the safety and convenience of motorists and pedestrians.
+Column B contains the status of each service request as a nominal variable. The status describes each request as either resolved, active, or cancelled. If the request is resolved, it means the problem was fixed. If the request is active, it is still being worked on. If the request is cancelled, it means the service is no longer needed.
 
-Hypothesis: Wards with higher population (such as Rideau-Vanier, Somerset, Kitchissippi, Orléans South-Navan) have more service requests because of greater demands on infrastructure
+__Column H / I__
 
+Columns H and I contain the latitude and longitude of each service request as continuous variables. However, many rows have ‘/N’ instead of a location, likely because certain service requests could be linked to specific households. Revealing the exact location might compromise privacy. Instead, the dataset includes the ward for each service request. This way, the precise address is not disclosed, but the general area (ward) is still provided.
 
-**Here are examples of functions and lines of code put in grey boxes:**
+__Is There Something Missing, Out Of The Ordinary, Or Surprising About The Data?__
+* One notable finding in the dataset is recorded in row 10, which details a traffic light outage that took an unusually long time to resolve—specifically, from August 1st to October 3rd, a span of over two months. This is particularly surprising because traffic light outages are critical issues that typically require immediate attention for the safety and convenience of everyone on the road.
 
-1. If you name a function, put it between "angled" quotation marks like this: `IMPORTHTML`.
-1. If you want to include the entire line of code, do the same thing, albeit with your entire code: `=IMPORTHTML("https://en.wikipedia.org/wiki/China"; "table", 5)`.
-1. Alternatively, you can put your code in an independent box using the template below:
+__Hypothesis:__ Wards with higher population (such as Rideau-Vanier, Somerset, Kitchissippi, Orléans South-Navan) take longer to resolve service requests because of the amount of service requests they receive.
 
-``` r
-=IMPORTHTML("https://en.wikipedia.org/wiki/China"; "table", 5)
-```
-This also shows how to create an ordered list. Simply put `1.` before each item.
+## 3. Understanding Data
 
-## 3. Understanding Data (700-1000 words)
-
-### 3.1. VIMO Analysis (162 words)
+### 3.1. VIMO Analysis
 
 For my VIMO analysis, I used the “Review Column Stats” tool under Data → Data Cleanup → Cleanup Suggestions to help me visualize each column using a bar graph.
 
@@ -155,7 +153,7 @@ To further clean the data, I used the CONCATENATE function to put the latitude a
 
 __After The Cleaning Process__
 
-After these methods, I manually went in and changed all of the titles so they were just English and expanded the columns so you could see all of the data.
+After these methods, I manually went in and changed all of the titles so they were just English, expanded the columns so you could see all of the data, and deleted the last column that had a September date.
 
 ![](after-cleaning-process.png)<br>
 *Figure 7: Final dataset after the cleaning process.*
