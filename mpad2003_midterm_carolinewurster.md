@@ -82,7 +82,7 @@ For my VIMO analysis, I used the “Review Column Stats” tool under Data → D
 ![](review-column-stats.png)<br>
 *Figure 2: The Review Column Stats tool, illustrating the most frequently used channels for submitting service requests.*
 
-__Valid:__ The status column serves as good example of a valid value set, containing only the defined categories: 'Active,' 'Resolved,' and 'Cancelled.' Each entry is accounted for, with no blank or missing values present and they all fall within the expected range.
+__Valid:__ The status column serves as a good example of a valid value set, containing only the defined categories: 'Active,' 'Resolved,' and 'Cancelled.' Each entry is accounted for, with no blank or missing values present and they all fall within the expected range.
 
 __Invalid:__ In the final row of data, there is a September opening date, which is technically considered invalid since this dataset is intended to reflect only service requests made throughout August.
 
@@ -97,7 +97,7 @@ Support your claims by citing relevant sources. Please follow [APA guidelines fo
 
 As Cairo (2016) argues, a data visualization should be truthful...
 
-### 3.2. Cleaning Data
+### 3.2. Cleaning Data (441 words)
 
 To clean the data, I used a few different methods including: 
 
@@ -143,35 +143,77 @@ To further clean the data, I used the CONCATENATE function to put the latitude a
 * In the column, I wrote the CONCATENATE function as so:
 `=CONCATENATE(H2, ", ", I2)`
 * I wrote it this way so that between the latitude and longitude, there would be a comma with a space beside it to easily differentiate between the two
+
+![](CONCATENATE-function.png)<br>
+*Figure 6: Use the CONCATENATE function to join 2 separate values into 1 column.*
+
 * I then double-clicked the small blue square in the lower-right corner of the cell with the formula so it would do it to the rest of the cells
 * Since there was a lot of \N, \N's, I used the find and replace tool to replace them with just a single \N
 * Right click to “Paste Special” → “Values Only” so you can edit the cells 
 * Delete the original columns, H and I
 * Change the heading to "Latitude, Longitude"
 
+__After The Cleaning Process__
 
+After these methods, I manually went in and changed all of the titles so they were just English and expanded the columns so you could see all of the data.
+
+![](after-cleaning-process.png)<br>
+*Figure 7: Final dataset after the cleaning process.*
 
 ### 3.3. Exploratory Data Analysis (EDA)
 
-Insert text here.
+Now that the data is clean, I made a pivot table and bar chart to conduct an exploratory data analysis. 
 
-**This section should include a screen capture of your pivot table, like so:**
+The variables I chose to examine were "Type" and "Status". I chose these variables because I wanted to see what services are most in demand and how effectively the city is addressing those demands. 
 
-![](pivot-table-screen-capture.png)<br>
-*Figure 2: This pivot table shows...*
+* The "Type" variable categorizes service requests. This helps in understanding which services residents use the most, and which issues or services require the city’s attention.
+* The "Status" variable (Active, Resolved, Cancelled) shows the progress of each request. This variable is essential for evaluating the effectiveness and efficiency of the city’s response to service requests.
 
-**This section should also include a screen capture of your exploratory chart, like so:**
+![](pivot-table.png)<br>
+*Figure 8: This pivot table shows the volume and resolution status of service requests by type.*
 
-![](chart-screen-capture.png)<br>
-*Figure 3: This exploratory chart shows...*
+![](exploratory-chart.png)<br>
+*Figure 9: This exploratory bar chart shows...*
+
+After examining the pivot table and chart, there were a couple statistics that stood out to me:
+
+* One specific statistic that stood out to me is "Garbage and Recycling". I noticed that this category has the highest total requests (10,257), with the majority resolved (10,033). 
+* Another statistic that stood out to me was the amount of active requests regarding Water and the Environment. There are 1,089 active requests out of a total of 3,313. This is a large proportion of unresolved cases.
+
+From this data and these observations, there were a few things I learned:
+
+* Some service types, like Garbage and Recycling, have an exceptionally high volume of requests, most of which are resolved. This could imply either strong efficiency in resolving these requests or that they are straightforward to address.
+* Other high-demand categories, such as Bylaw Services and Roads and Transportation, also show large volumes of requests, but with a significant number still active, indicating possible delays or backlogs.
+* Water and the Environment and Roads and Transportation have a high number of unresolved, active requests. This suggests that these services might need additional resources or more efficient workflows to meet demand.
+
+A potential story that we could create from this could be:
+* __“Top Issues Residents Report and How Well They’re Addressed”__
+* This could be a general story that explores the most common types of service requests and the city’s responsiveness in each area. 
+
+Some variables and numbers that could warrant further investigation include:
+* Understanding the time taken to resolve different types of requests. This would reveal efficiency in service delivery and help us understand where delays occur.
+* To warrant further investigation, I could calculate the average time for each type of request to be resolved. I could then compare this across different types and statuses to see which requests take the longest to resolve. Longer resolution times for certain categories might indicate a need for additional resources or process improvements.
 
 ## 4. Potential Story
 
-Insert text here.
+In order to further dig into the story: __“Top Issues Residents Report and How Well They’re Addressed”__, there's a few things I'd need to do.
+
+__What else would you need to "tell" this story?__
+
+__Who could you interview about it?__
+* I could interview or survey residents in specific wards to get their perspectives on service satisfaction
+
+__Do some research and list relevant sources you came across that could help you provide more context__
+
 
 ## 5. Conclusion
 
-Insert text here.
+Throughout this assignment, I went through some challenging and rewarding aspects.
+
+One example of a challenging aspect for me was the VIMO Analysis. I think I struggled with this part of the assignment because it was difficult to find missing or invalid data in such a large dataset, compared to the smaller datasets that we've looked at in the past.
+
+The most rewarding aspect of this assignment for me was cleaning the data. I think this was the most rewarding because I feel as though I have a pretty good understanding of the different functions and tools on Google Sheets that we learned in the modules and in class. I found it interesting to use what I've learned and being able to apply it to this assignment.
+
 
 ## 6. References
 
