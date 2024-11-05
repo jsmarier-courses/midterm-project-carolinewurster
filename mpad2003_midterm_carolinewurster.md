@@ -75,7 +75,7 @@ __Hypothesis:__ Wards with higher population (such as Rideau-Vanier, Somerset, K
 
 ### 3.1. VIMO Analysis
 
-For my VIMO analysis, I used the “Review Column Stats” tool under Data → Data Cleanup → Cleanup Suggestions to help me visualize each column using a bar graph.
+For my VIMO analysis, I used the “Review Column Stats” tool under Data → Data Cleanup → Cleanup Suggestions to help me visualize each column using a bar graph. "Using data visualization is a great way to spot anomalies in data before you get started, think about what level of incorrectness you can tolerate in the data, what's adequate for your purpose" (Statistics Canada, 2020).
 
 ![](review-column-stats.png)<br>
 *Figure 2: The Review Column Stats tool, illustrating the most frequently used channels for submitting service requests.*
@@ -87,13 +87,6 @@ __Invalid:__ In the final row of data, there is a September opening date, which 
 __Missing:__ The addresses, longitude, and latitude columns contain numerous entries marked as '/N,' indicating that the expected data is absent or missing.
 
 __Outliers:__ In the channel column, the outlier is 'counter' (as illustrated in Figure 2), with only 2 people submitting service requests in this manner. However, this may also be classified as walk-in service. We will address this inconsistency during the data cleaning process.
-
-
-Support your claims by citing relevant sources. Please follow [APA guidelines for in-text citations](https://apastyle.apa.org/style-grammar-guidelines/citations).
-
-**For example:**
-
-As Cairo (2016) argues, a data visualization should be truthful...
 
 ### 3.2. Cleaning Data (441 words)
 
@@ -185,6 +178,7 @@ From this data and these observations, there were a few things I learned:
 * Water and the Environment and Roads and Transportation have a high number of unresolved, active requests. This suggests that these services might need additional resources or more efficient workflows to meet demand.
 
 A potential story that we could create from this could be:
+* "To draw your readers in you have to be able to hit them with a headline figure that makes them sit up and take notice" (Bounegru et al., n.d.)
 * __“Top Issues Residents Report and How Well They’re Addressed”__
 * This could be a general story that explores the most common types of service requests and the city’s responsiveness in each area. 
 
@@ -194,15 +188,11 @@ Some variables and numbers that could warrant further investigation include:
 
 ## 4. Potential Story
 
-In order to further dig into the story: __“Top Issues Residents Report and How Well They’re Addressed”__, there's a few things I'd need to do.
+ ### "Top Issues Residents Report and How Well They’re Addressed"
 
-__What else would you need to "tell" this story?__
+I think that this story could explore the efficiency of city services through resident feedback and service request data. By examining the types of requests residents most frequently submit—such as garbage and recycling, bylaw enforcement, and road repairs—the analysis could highlight which services see the highest demand and how quickly the city responds. Data on request resolution times and active cases would provide insight into the city’s efficiency, revealing both strengths and areas where delays persist. To bring a personal perspective, interviews with residents from various wards could offer firsthand accounts of their service satisfaction; while interviews with city service managers could explain challenges like resource limitations. This story could illustrate both the successes and struggles of city departments in meeting community needs, presenting an informed and relatable look at local government responsiveness.
 
-__Who could you interview about it?__
-* I could interview or survey residents in specific wards to get their perspectives on service satisfaction
-
-__Do some research and list relevant sources you came across that could help you provide more context__
-
+One example that could help prove my point for this story is this article on [Ottawa residents' concerns over rat infestations](https://ottawa.ctvnews.ca/this-ottawa-ward-has-the-most-complaints-about-rats-so-far-in-2024-1.6879854). This article highlights a frequent service request and the city’s response through Bylaw and Regulatory Services, making it highly relevant to the story. By showcasing a common complaint type and revealing geographic disparities in response (e.g., more complaints in Rideau-Vanier), it offers a concrete example of how service demand and effectiveness vary by neighbourhood. Additionally, resident frustrations over limited city intervention underscore the importance of exploring both the city's responsiveness and potential gaps in service delivery.
 
 ## 5. Conclusion
 
@@ -215,8 +205,17 @@ The most rewarding aspect of this assignment for me was cleaning the data. I thi
 
 ## 6. References
 
-Include a list of your references here. Please follow [APA guidelines for references](https://apastyle.apa.org/style-grammar-guidelines/references). Hanging paragraphs aren't required though.
+Include a list of your references here. Please follow [APA guidelines for references](https://apastyle.apa.org/style-grammar-guidelines/references).
 
-**Here's an example:**
+Bounegru, L., Chambers, L., & Gray, J. W.Y. (2021). *The Data Journalism Handbook 1: How Journalists Can Use Data to Improve the News*. Amsterdam University Press. [https://datajournalism.com/read/handbook/one/understanding-data/start-with-the-data-finish-with-a-story](https://datajournalism.com/read/handbook/one/understanding-data/start-with-the-data-finish-with-a-story)
 
-Bounegru, L., & Gray, J. (Eds.). (2021). *The Data Journalism Handbook 2: Towards A Critical Data Practice*. Amsterdam University Press. [https://ocul-crl.primo.exlibrisgroup.com/permalink/01OCUL_CRL/hgdufh/alma991022890087305153](https://ocul-crl.primo.exlibrisgroup.com/permalink/01OCUL_CRL/hgdufh/alma991022890087305153)
+Pringle, J. (2024, May 9). *This Ottawa ward has the most complaints about rats so far in 2024*. CTV News Ottawa. [https://ottawa.ctvnews.ca/this-ottawa-ward-has-the-most-complaints-about-rats-so-far-in-2024-1.6879854](https://ottawa.ctvnews.ca/this-ottawa-ward-has-the-most-complaints-about-rats-so-far-in-2024-1.6879854)
+
+Statistics Canada. (2020, September 23). *Data Accuracy and Validation: Methods to ensure the quality of data*. [https://www.statcan.gc.ca/en/wtc/data-literacy/catalogue/892000062020008](https://www.statcan.gc.ca/en/wtc/data-literacy/catalogue/892000062020008)
+
+__Other References:__
+
+Module 5: Cleaning Data in Google Sheets Video
+
+Module 6: Using Pivot Tables in Google Sheets Video
+
