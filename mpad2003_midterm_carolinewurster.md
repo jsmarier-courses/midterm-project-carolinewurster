@@ -5,10 +5,6 @@
 
 # Midterm Project: Exploratory Data Analysis (EDA)
 
-**Here are some useful resources for this assignment:**
-
-* [The template repository for this assignment in case you delete something by mistake](https://github.com/jsmarier/jou4100_jou4500_mpad2003_project2_template)
-
 ## 1. Introduction
 
 My name is Caroline Wurster and I will be analyzing a City of Ottawa dataset about the service requests made in all of August 2024.
@@ -191,13 +187,13 @@ One example that could help prove my point for this story is this article on [Ot
 
 Throughout this assignment, I went through some challenging and rewarding aspects.
 
-One example of a challenging aspect for me was the VIMO Analysis. I think I struggled with this part of the assignment because it was difficult to find missing or invalid data in such a large dataset, compared to the smaller datasets that we've looked at in the past.
+One example of a challenging aspect for me was the VIMO Analysis. I think I struggled with this part of the assignment because working with such a large dataset made it difficult to find missing or invalid data, especially compared to the smaller datasets we’ve previously handled.
 
-The most rewarding aspect of this assignment for me was cleaning the data. I think this was the most rewarding because I feel as though I have a pretty good understanding of the different functions and tools on Google Sheets that we learned in the modules and in class. I found it interesting to use what I've learned and being able to apply it to this assignment.
+The most rewarding aspect of this assignment for me was cleaning the data. I think this was the most rewarding because I feel as though I have a pretty solid understanding of the different functions and tools on Google Sheets that we learned in the modules and in class. I found it interesting to use what I've learned and being able to apply it to this assignment.
 
 I have identified some gaps in my own knowledge, such as learning more about efficient ways to clean and prepare large datasets, like handling incomplete entries.
 
-Looking back, creating multiple visulization charts instead of just one, could've made it easier to identify different patterns and outliers than the ones I found.
+Looking back, creating multiple visulization charts instead of just one, could've made it easier to identify different patterns and outliers than just the ones I found.
 
 To sum up, this assignment has been a valuable learning experience, with both challenging and rewarding moments. Overall, it gave me a clearer understanding of both my strengths and areas for growth, and I’m looking forward to building on these insights in future projects.
 
