@@ -13,44 +13,35 @@
 
 My name is Caroline Wurster and I will be analyzing a City of Ottawa dataset about the service requests made in all of August 2024.
 
-To begin, I made a few short observations about about the dataset we'll be looking at:
+To begin, I made a few short observations about the dataset we'll be looking at:
 
-__How The Data Was Collected:__
-
-The City of Ottawa collected the service request data from a variety of channels, including: 311 Contact Centre, Client Service Centres, 311 Email, and Web-based Self-Service portal. The data is then presented on the Open Ottawa website where it is updated monthly. 
-
-__Time Period Of The Data:__
-
-For this dataset, we will be looking at service requests from August 1, 2024 to August 31, 2024.
-
-__Variable Types__
-
-With 11 columns total, the dataset contains both categorical variables (e.g., status, type) and numeric variables (e.g., latitude, longitude), which will require different handling in the analysis.
-
+The City of Ottawa collected the service request data from a variety of channels, including: 311 Contact Centre, Client Service Centres, 311 Email, and Web-based Self-Service portal. The data is then presented on the Open Ottawa website where it is updated monthly. For this dataset, we will be looking at service requests from August 1, 2024 to August 31, 2024. With 11 columns total, the dataset contains both categorical variables (e.g., status, type) and numeric variables (e.g., latitude, longitude), which will require different handling in the analysis.
 
 [Link to the original dataset on Open Ottawa.](https://www.arcgis.com/home/item.html?id=65fe42e2502d442b8a774fd3d954cac5)
 
 [Link to the CSV version on the GitHub portal. This is the dataset we'll be looking at.](https://raw.githubusercontent.com/jsmarier/course-datasets/refs/heads/main/ottawa-311-service-requests-august-2024.csv)
 
+As we work through this analysis, we will be looking at:
+* __Getting Data:__ How to import the data into Google Sheets and making initial observations about it
+* __Understanding Data:__ What to look for when writing a VIMO analysis, how to clean the dataset, and how to create an exploratory data analysis using pivot tables and charts
+* __Potential Story:__ Finding a potential story that we could create with the data that we looked at
+* __Conclusion:__  Conluding with what was challenging, rewarding, and what could've been done differently
+
 ## 2. Getting Data
 
-I imported the data into Google Sheets by first opening the CSV file link from the Github repository. 
-I then right clicked and hit “Save As” to save the file into my downloads
-Then, I created a new Google Sheets file and clicked on “File → Import → Upload”.
-A screen popped up where I put “Replace current sheet” as the import location and “Comma” as the separator type.
-I then clicked “Import Data” and after loading for a second, the file was successfully imported.
+To begin, I imported the data into Google Sheets by first opening the CSV file link from the Github repository. I then right clicked and hit “Save As” to save the file into my downloads. Then, I created a new Google Sheets file and clicked on “File → Import → Upload”. A screen popped up where I put “Replace current sheet” as the import location and “Comma” as the separator type. I then clicked “Import Data”, and after loading for a second, the file was successfully imported.
 
 
 ![](file-after-importation.png)<br>
 *Figure 1: The file right after importing it into Google Sheets.*
-[Link to my Google Sheets spreadsheet](https://docs.google.com/spreadsheets/d/1t-jOmurv8BvXxvz8qQL1A-_T3aBUDeR_cZUblj-8FQE/edit?usp=sharing)
+[Link to my Google Sheets spreadsheet.](https://docs.google.com/spreadsheets/d/1t-jOmurv8BvXxvz8qQL1A-_T3aBUDeR_cZUblj-8FQE/edit?usp=sharing)
 
 __General Observations Regarding The Dataset:__
-* There is 11 columns and 28 539 rows
+* There is 11 columns and 28, 539 rows
 * As for the cleanliness of the data, there are a few things that could be fixed: 
-* Using the Clean-Up Suggestions tool, it told me there was over 750 columns with whitespace that could be removed.
+* Using the Clean-Up Suggestions tool, it told me there was over 750 columns with whitespace that could be removed
 * Upon further investigation, I also found that the data is supposed to only cover all of August, however, the very last row has a September date
-* I also found that many of addresses are missing. In the future, we may need to fill in the missing values or exclude these entries, depending on our analysis goals.
+* I also found that a lot of the addresses are missing because they have "/N" next to them
 
 __Specific Observations About Three Columns:__ 
 
@@ -64,7 +55,7 @@ Column B contains the status of each service request as a nominal variable. The 
 
 __Column H / I__
 
-Columns H and I contain the latitude and longitude of each service request as continuous variables. However, many rows have ‘/N’ instead of a location, likely because certain service requests could be linked to specific households. Revealing the exact location might compromise privacy. Instead, the dataset includes the ward for each service request. This way, the precise address is not disclosed, but the general area (ward) is still provided.
+Columns H and I contain the latitude and longitude of each service request as continuous variables. However, many rows have ‘/N’ instead of a location, likely because certain service requests could be linked to specific households. Revealing the exact location might compromise privacy. Instead, the dataset includes the ward for each service request, as well. This way, the precise address is not disclosed, but the general area (ward) is still provided.
 
 __Is There Something Missing, Out Of The Ordinary, Or Surprising About The Data?__
 * One notable finding in the dataset is recorded in row 10, which details a traffic light outage that took an unusually long time to resolve—specifically, from August 1st to October 3rd, a span of over two months. This is particularly surprising because traffic light outages are critical issues that typically require immediate attention for the safety and convenience of everyone on the road.
@@ -75,7 +66,7 @@ __Hypothesis:__ Wards with higher population (such as Rideau-Vanier, Somerset, K
 
 ### 3.1. VIMO Analysis
 
-For my VIMO analysis, I used the “Review Column Stats” tool under Data → Data Cleanup → Cleanup Suggestions to help me visualize each column using a bar graph. "Using data visualization is a great way to spot anomalies in data before you get started, think about what level of incorrectness you can tolerate in the data, what's adequate for your purpose" (Statistics Canada, 2020).
+For my VIMO analysis, I used the “Review Column Stats” tool under Data → Data Cleanup → Cleanup Suggestions to help me visualize each column using a bar graph. "Using data visualization is a great way to spot anomalies in data before you get started, think about what level of incorrectness you can tolerate in the data" (Statistics Canada, 2020).
 
 ![](review-column-stats.png)<br>
 *Figure 2: The Review Column Stats tool, illustrating the most frequently used channels for submitting service requests.*
@@ -109,10 +100,11 @@ __2. Used The Split Function__
 
 The SPLIT function divides text around a specified character or string, and puts each fragment into a separate cell in the row.
 
-To clean the data, I used the SPLIT function for the “Description” column because it had an English and French description. However, for this dataset, everything is only in English so we didn’t need the French translation.
+To clean the data, I used the SPLIT function for the “Description” column because it had an English and French description. However, for this dataset, everything is only in English, so we didn’t need the French translation.
 
 * To start, I added 2 new columns 
 * In one of the columns, I wrote the SPLIT function as so:
+
 `=SPLIT(D2, "|")`
 * I used "|" as the delimiter because this is where the English and French are separated so they'll go into different columns
 
@@ -132,6 +124,7 @@ To further clean the data, I used the CONCATENATE function to put the latitude a
 
 * To start, I added a new column
 * In the column, I wrote the CONCATENATE function as so:
+
 `=CONCATENATE(H2, ", ", I2)`
 * I wrote it this way so that between the latitude and longitude, there would be a comma with a space beside it to easily differentiate between the two
 
@@ -161,10 +154,10 @@ The variables I chose to examine were "Type" and "Status". I chose these variabl
 * The "Status" variable (Active, Resolved, Cancelled) shows the progress of each request. This variable is essential for evaluating the effectiveness and efficiency of the city’s response to service requests.
 
 ![](pivot-table.png)<br>
-*Figure 8: This pivot table shows the volume and resolution status of service requests by type.*
+*Figure 8: This pivot table shows the volume and resolution status of service requests by type in a table format.*
 
 ![](exploratory-chart.png)<br>
-*Figure 9: This exploratory bar chart shows...*
+*Figure 9: This exploratory bar chart made in Datawrapper demonstrates a graphical representation of the data from the pivot table, making it easier to visually understand what the data is telling us*
 
 After examining the pivot table and chart, there were a couple statistics that stood out to me:
 
@@ -177,8 +170,8 @@ From this data and these observations, there were a few things I learned:
 * Other high-demand categories, such as Bylaw Services and Roads and Transportation, also show large volumes of requests, but with a significant number still active, indicating possible delays or backlogs.
 * Water and the Environment and Roads and Transportation have a high number of unresolved, active requests. This suggests that these services might need additional resources or more efficient workflows to meet demand.
 
-A potential story that we could create from this could be:
-* "To draw your readers in you have to be able to hit them with a headline figure that makes them sit up and take notice" (Bounegru et al., n.d.)
+To create a potential story from this, we need to be able to catch the reader's attention. "To draw your readers in you have to be able to hit them with a headline figure that makes them sit up and take notice" (Bounegru et al., n.d.). An example for this dataset could be:
+
 * __“Top Issues Residents Report and How Well They’re Addressed”__
 * This could be a general story that explores the most common types of service requests and the city’s responsiveness in each area. 
 
@@ -190,9 +183,9 @@ Some variables and numbers that could warrant further investigation include:
 
  ### "Top Issues Residents Report and How Well They’re Addressed"
 
-I think that this story could explore the efficiency of city services through resident feedback and service request data. By examining the types of requests residents most frequently submit—such as garbage and recycling, bylaw enforcement, and road repairs—the analysis could highlight which services see the highest demand and how quickly the city responds. Data on request resolution times and active cases would provide insight into the city’s efficiency, revealing both strengths and areas where delays persist. To bring a personal perspective, interviews with residents from various wards could offer firsthand accounts of their service satisfaction; while interviews with city service managers could explain challenges like resource limitations. This story could illustrate both the successes and struggles of city departments in meeting community needs, presenting an informed and relatable look at local government responsiveness.
+This story could look at how well city services meet community needs by using resident feedback and service request data. By analyzing the most common requests—like garbage collection, bylaw enforcement, and road repairs—we can see which services are most in demand and how quickly the city responds. Data on response times and open cases would highlight where the city is efficient and where delays occur. Resident interviews could add personal perspectives on service satisfaction, while input from city service managers could explain challenges like limited resources. This story would give a clear picture of both the successes and struggles of city departments in serving the residents of Ottawa.
 
-One example that could help prove my point for this story is this article on [Ottawa residents' concerns over rat infestations](https://ottawa.ctvnews.ca/this-ottawa-ward-has-the-most-complaints-about-rats-so-far-in-2024-1.6879854). This article highlights a frequent service request and the city’s response through Bylaw and Regulatory Services, making it highly relevant to the story. By showcasing a common complaint type and revealing geographic disparities in response (e.g., more complaints in Rideau-Vanier), it offers a concrete example of how service demand and effectiveness vary by neighbourhood. Additionally, resident frustrations over limited city intervention underscore the importance of exploring both the city's responsiveness and potential gaps in service delivery.
+One example that could help prove my point for this story is this article on [Ottawa residents' concerns over rat infestations](https://ottawa.ctvnews.ca/this-ottawa-ward-has-the-most-complaints-about-rats-so-far-in-2024-1.6879854). This article highlights a frequent service request and the city’s response through Bylaw and Regulatory Services, making it highly relevant to the story. The article illustrates location-based differences (such as higher complaints in Rideau-Vanier) and highlights residents' frustrations with limited city intervention, emphasizing the need to explore gaps in service delivery.
 
 ## 5. Conclusion
 
@@ -202,10 +195,13 @@ One example of a challenging aspect for me was the VIMO Analysis. I think I stru
 
 The most rewarding aspect of this assignment for me was cleaning the data. I think this was the most rewarding because I feel as though I have a pretty good understanding of the different functions and tools on Google Sheets that we learned in the modules and in class. I found it interesting to use what I've learned and being able to apply it to this assignment.
 
+I have identified some gaps in my own knowledge, such as learning more about efficient ways to clean and prepare large datasets, like handling incomplete entries.
+
+Looking back, creating multiple visulization charts instead of just one, could've made it easier to identify different patterns and outliers than the ones I found.
+
+To sum up, this assignment has been a valuable learning experience, with both challenging and rewarding moments. Overall, it gave me a clearer understanding of both my strengths and areas for growth, and I’m looking forward to building on these insights in future projects.
 
 ## 6. References
-
-Include a list of your references here. Please follow [APA guidelines for references](https://apastyle.apa.org/style-grammar-guidelines/references).
 
 Bounegru, L., Chambers, L., & Gray, J. W.Y. (2021). *The Data Journalism Handbook 1: How Journalists Can Use Data to Improve the News*. Amsterdam University Press. [https://datajournalism.com/read/handbook/one/understanding-data/start-with-the-data-finish-with-a-story](https://datajournalism.com/read/handbook/one/understanding-data/start-with-the-data-finish-with-a-story)
 
@@ -215,7 +211,7 @@ Statistics Canada. (2020, September 23). *Data Accuracy and Validation: Methods 
 
 __Other References:__
 
-Module 5: Cleaning Data in Google Sheets Video
+[Module 5: Cleaning Data in Google Sheets Video](https://brightspace.carleton.ca/d2l/le/content/290806/viewContent/3855132/View)
 
-Module 6: Using Pivot Tables in Google Sheets Video
+[Module 6: Using Pivot Tables in Google Sheets Video](https://brightspace.carleton.ca/d2l/le/content/290806/viewContent/3855146/View)
 
